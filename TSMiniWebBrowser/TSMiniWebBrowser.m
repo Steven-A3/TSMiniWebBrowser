@@ -80,7 +80,8 @@ enum actionSheetButtonIndex {
     if ( webView.loading ) {
         [webView stopLoading];
     }
-    [self dismissModalViewControllerAnimated:YES];
+//    [self dismissModalViewControllerAnimated:YES];
+	[self dismissViewControllerAnimated:YES completion:NULL];
     
     // Notify the delegate
     if (self.delegate != NULL && [self.delegate respondsToSelector:@selector(tsMiniWebBrowserDidDismiss)]) {
@@ -253,7 +254,7 @@ enum actionSheetButtonIndex {
     }
     
     // Status bar style
-    [[UIApplication sharedApplication] setStatusBarStyle:barStyle animated:YES];
+	[[UIApplication sharedApplication] setStatusBarStyle:(UIStatusBarStyle) barStyle animated:YES];
     
     // UI state
     buttonGoBack.enabled = NO;
@@ -292,7 +293,7 @@ enum actionSheetButtonIndex {
     }
     
     // Restore Status bar style
-    [[UIApplication sharedApplication] setStatusBarStyle:originalBarStyle animated:NO];
+	[[UIApplication sharedApplication] setStatusBarStyle:(UIStatusBarStyle) originalBarStyle animated:NO];
     
     // Stop loading
     [webView stopLoading];
